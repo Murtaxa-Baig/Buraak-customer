@@ -15,7 +15,7 @@ export default function Navbar() {
     return (
         <>
             <div className="bg-gray-100 p-4">
-                <nav className="flex justify-between items-center">
+                <nav className="flex justify-between items-center w-[90%] mx-auto">
                     {/* Left Side - App name and Links */}
                     <div className="flex space-x-4">
                         <span className="text-xl font-bold">Buraak</span>
@@ -32,7 +32,7 @@ export default function Navbar() {
                         <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Sign In</button>
                         <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Sign Up</button>
 
-                        <select name="" id="" className='h-10'>
+                        <select name="" id="" className='h-10 rounded-md'>
                             {
                                 languages.map((language, index) => (
                                     <option key={index} value={language}>{language}</option>
@@ -57,12 +57,20 @@ export default function Navbar() {
 
                 {/* Mobile Menu */}
                 {isOpen && (
-                    <div className="md:hidden flex flex-col mt-4 space-y-2">
-                        <a href="#" className="text-gray-700 hover:text-gray-900">Home</a>
-                        <a href="#" className="text-gray-700 hover:text-gray-900">Contact</a>
-                        <a href="#" className="text-gray-700 hover:text-gray-900">About</a>
+                    <div className="absolute bg-white w-full md:hidden flex flex-col mt-4 space-y-2 left-0 right-0 top-10 p-3 z-10">
+                        <Link href="/" className="text-gray-700 hover:text-gray-900">Home</Link>
+                        <Link href="#" className="text-gray-700 hover:text-gray-900">Contact</Link>
+                        <Link href="#" className="text-gray-700 hover:text-gray-900">About</Link>
+                        <button className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-blue-600">Inquire a reservation</button>
                         <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Sign In</button>
                         <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Sign Up</button>
+                        <select name="" id="" className='h-10 rounded-md'>
+                            {
+                                languages.map((language, index) => (
+                                    <option key={index} value={language}>{language}</option>
+                                ))
+                            }
+                        </select>
                     </div>
                 )}
             </div>
